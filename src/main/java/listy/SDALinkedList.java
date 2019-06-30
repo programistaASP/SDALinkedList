@@ -15,7 +15,6 @@ public class SDALinkedList {
         head = toAdd;
     } //konstruktor przyjmujacy wartosc, tworzy noda, ustawia head'a na tego noda
 
-
     public void add(int value) {
         Node temp = head; // ustawiamy poczatek pracy na poczatek listy
         while (temp.getNext() != null) { //dopoki mozemy znalezc nastepny element
@@ -35,6 +34,53 @@ public class SDALinkedList {
         }
         prevToRemovingOne.setNext(temp.getNext()); //ustawienie 'nexta' wezlowi n-1 na wezel n+1 -> pomieniecie wezla do usuniecia, ergo jego usuniecie
     }
+
+    public boolean isEmpty() {
+        if (head == null) {
+            return true;
+        } else return false;
+    }
+
+    public int size() {
+        Node temp = head;
+        int index = 0;
+        while (temp.getNext() != null) {
+            temp = temp.getNext();
+            index++;
+        }
+        return index + 1;
+    }
+
+    public int getFirst() {
+        Node temp = head;
+        return head.getValue();
+    }
+
+    public int getLast() {
+        Node temp = head;
+        while (temp.getNext() != null) {
+            temp = temp.getNext();
+
+        }
+        return temp.getValue();
+    }
+
+    public int get() {
+        Node temp = head;
+        int index = 0;
+        for (int i = 0; i < size(); i++) {
+            temp = temp.getNext();
+            if (i == index-1) {
+                return temp.getValue();
+            }
+        }
+        return -1;
+    }
+
+
+
+
+
 
     @Override
     public String toString() {
